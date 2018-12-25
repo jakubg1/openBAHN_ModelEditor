@@ -1,12 +1,13 @@
-# openBAHN_ModelEditor
-A model editor for the openBAHN project.
+# Model Editor for openBAHN
 
-# Overview
+## Overview
 
 This project contains currently only gray scene with one colored triangle.
 
-# Controls
+## Controls
 
 - Arrow keys - move the camera
 - Page Up/Down - lift up/down
 - Mouse - rotate the camera
+- Tab - toggle move mode (when off, you can click things on the interface)
+- Q - quit
