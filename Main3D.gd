@@ -9,9 +9,10 @@ var rawData = [
 ]
 
 func _ready():
-	update()
+	updateGeometry()
 
-func update():
+func updateGeometry():
+	clear()
 	for i in range(rawData.size()):
 		var triangle = rawData[i]
 		var texture = null
