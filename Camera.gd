@@ -9,20 +9,18 @@ func _ready():
 	set_process_input(true)
 
 func _process(delta):
-	for i in range(movement.size()):
-		var movementName = movement.keys()[i]
-		if !movement[movementName]:
-			continue
-		var translationBase = Vector3(0, 0, 0)
-		var frameSpeed = speed * delta
-		if i % 2 == 1:
-			frameSpeed *= -1
-		translationBase[floor(i / 2)] = frameSpeed
-		translate(translationBase)
-	
-	rotation -= Vector3((System.mousePosDelta[1] * mouseSensitivity) * 0.001, (System.mousePosDelta[0] * mouseSensitivity) * 0.001, 0)
-	#rotate_x((System.mousePosDelta[0] * mouseSensitivity) * 0.001)
-	#rotate_z((System.mousePosDelta[1] * mouseSensitivity) * 0.001)
+	if System.main.moveMode:
+		for i in range(movement.size()):
+			var movementName = movement.keys()[i]
+			if !movement[movementName]:
+				continue
+			var translationBase = Vector3(0, 0, 0)
+			var frameSpeed = speed * delta
+			if i % 2 == 1:
+				frameSpeed *= -1
+			translationBase[floor(i / 2)] = frameSpeed
+			translate(translationBase)
+		rotation -= Vector3((System.mousePosDelta[1] * mouseSensitivity) * 0.002, (System.mousePosDelta[0] * mouseSensitivity) * 0.002, 0)
 
 func _input(event):
 	for i in range(movement.size()):

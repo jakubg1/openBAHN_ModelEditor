@@ -16,7 +16,8 @@ func _process(delta):
 	var oldMousePos = mousePos
 	mousePos = main.get_global_mouse_position()
 	if holdMouse:
-		mousePosDelta = mousePos - (windowSize / 2)
-		Input.warp_mouse_position(windowSize / 2)
+		var mouseHoldPos = (windowSize / 2).floor()
+		mousePosDelta = mousePos - mouseHoldPos
+		Input.warp_mouse_position(mouseHoldPos)
 	else:
 		mousePosDelta = mousePos - oldMousePos
